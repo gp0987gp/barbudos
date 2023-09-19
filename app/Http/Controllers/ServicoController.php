@@ -83,7 +83,7 @@ class ServicoController extends Controller
         }
         if(isset($request->descricao)){
         $servico-> descricao = $request->descricao;
-        }
+        }           
         if(isset($request->duracao)){
         $servico-> duracao = $request->duracao;
         }
