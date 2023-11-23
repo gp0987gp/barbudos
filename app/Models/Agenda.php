@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Servico extends Model
+class Agenda extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'nome',
-        'descricao',
-        'duracao',
-        'preco',
+        'profissional_Id',
+        'cliente_Id',
+        'servico_Id',
+        'dataHora',
+        'pagamento',
+        'valor',
     ];
 }
-

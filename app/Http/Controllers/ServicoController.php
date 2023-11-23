@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ServicoFormRequest;
 use App\Http\Requests\ServicoFormRequestUpdate;
-use App\Models\Servico;
+use App\Models\servico;
+use App\Models\Servico as ModelsServico;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ServicoController extends Controller
-
 {
     public function criarServico(ServicoFormRequest $request)
     {
@@ -50,6 +51,57 @@ class ServicoController extends Controller
             'message' => 'Não há resultado para pesquisa.'
         ]);
     }
+    public function pesquisaPorDescricao(Request $request)
+    {
+        $servico = Servico::where('descricao', 'like', '%' . $request->descricao . '%')->get();
+
+        if (count($servico) > 0) {
+
+            return response()->json([
+                'status' => true,
+                'data' => $servico
+            ]);
+        }
+        return response()->json([
+            'status' => false,
+            'message' => 'Não há resultado para pesquisa.'
+        ]);
+    }
+    public function esqueciSenha(Request $request)
+    {
+        $servico = servico::where('id', $request->id)->first();
+
+        if (isset($servico)) {
+            $servico->password = Hash::make($servico->cpf);
+            $servico->update();
+            return response()->json([
+                'status' => true,
+                'message' => 'senha redefinida.'
+            ]);
+        }
+
+        return response()->json([
+            'status' => true,
+            'message' => 'não foi possivel alterar a senha'
+        ]);
+    }
+
+    public function pesquisarIdServico($id)
+    {
+        $servico = Servico::find($id);
+
+        if ($servico == null) {
+            return response()->json([
+                'status' => false,
+                'message' => "Servico não encontrada"
+            ]);
+        }
+        return response()->json([
+            'status' => true,
+            'data' => $servico
+        ]);
+    }
+    
     public function excluir($id)
     {
         $servico = Servico::find($id);
@@ -77,13 +129,13 @@ class ServicoController extends Controller
                 'message' => "Serviço não encontrado"
             ]);
         }
-       
+        
         if(isset($request->nome)){
         $servico-> nome = $request->nome;
         }
         if(isset($request->descricao)){
         $servico-> descricao = $request->descricao;
-        }           
+        }
         if(isset($request->duracao)){
         $servico-> duracao = $request->duracao;
         }
@@ -97,6 +149,20 @@ class ServicoController extends Controller
             'status' => true,
             'message' => "Serviço atualizado."
         ]);
-       
+        
     }
+    public function retornarTodos(){
+        $servico = Servico::all();
+
+        if(count($servico)==0){
+            return response()->json([
+                'status'=> false,
+                'message'=> "serviço nao encontrado"
+            ]);
+        }
+        return response()->json([
+            'status'=> true,
+            'data' => $servico
+        ]);
+       }
 }

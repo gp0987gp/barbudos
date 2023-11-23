@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ClienteFormRequest;
+use App\Http\Requests\ClienteFormRequestUpdate;
 use App\Models\cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ClienteController extends Controller
 {
@@ -31,17 +33,10 @@ class ClienteController extends Controller
             "message" => "Cliente cadastrado",
             "data" => $cliente
         ], 200);
-        if (count($cliente) > 0) {
-            return response()->json([
-                'status' => false,
-                "message" => "O nome do cliente comtem mais de 200 caracteres, e não pode ser cadastrado",
-                'data' => $cliente
-            ]);
-        }
     }
     public function pesquisaPorNome(Request $request)
     {
-        $cliente = cliente::where('nome', 'like', '%' . $request->nome . '%')->get();
+        $cliente = Cliente::where('nome', 'like', '%' . $request->nome . '%')->get();
 
         if (count($cliente) > 0) {
 
@@ -57,7 +52,7 @@ class ClienteController extends Controller
     }
     public function pesquisaCelular(Request $request)
     {
-        $cliente = cliente::where('celular', 'like', '%' . $request->celular . '%')->get();
+        $cliente = Cliente::where('celular', 'like', '%' . $request->celular . '%')->get();
 
         if (count($cliente) > 0) {
 
@@ -73,7 +68,7 @@ class ClienteController extends Controller
     }
     public function pesquisaCPF(Request $request)
     {
-        $cliente = cliente::where('cpf', 'like', '%' . $request->cpf . '%')->get();
+        $cliente = Cliente::where('cpf', 'like', '%' . $request->cpf . '%')->get();
 
         if (count($cliente) > 0) {
 
@@ -87,9 +82,29 @@ class ClienteController extends Controller
             'message' => 'Não há resultado para pesquisa.'
         ]);
     }
+
+    public function esqueciSenha(Request $request)
+    {
+        $cliente = Cliente::where('id', $request->id)->first();
+
+        if (isset($cliente)) {
+            $cliente->password = Hash::make($cliente->cpf);
+            $cliente->update();
+            return response()->json([
+                'status' => true,
+                'message' => 'senha redefinida.'
+            ]);
+        }
+
+        return response()->json([
+            'status' => true,
+            'message' => 'não foi possivel alterar a senha'
+        ]);
+    }
+
     public function pesquisaEmail(Request $request)
     {
-        $cliente = cliente::where('email', 'like', '%' . $request->email . '%')->get();
+        $cliente = Cliente::where('email', 'like', '%' . $request->email . '%')->get();
 
         if (count($cliente) > 0) {
 
@@ -103,30 +118,47 @@ class ClienteController extends Controller
             'message' => 'Não há resultado para pesquisa.'
         ]);
     }
-    public function excluir($id)
+    public function pesquisaId($id)
     {
-        $cliente = cliente::find($id);
-        if (!isset($clientee)) {
+        $cliente = Cliente::find($id);
+       
+        if ($cliente == null) {
             return response()->json([
                 'status' => false,
-                'message' => "Serviço não encontrado"
+                'message' => "cliente não encontrada"
+            ]);
+        }
+        return response()->json([
+            'status' => true,
+            'data' => $cliente
+        ]);
+       
+    }
+    public function exclui($id)
+    {
+       
+        $cliente = Cliente::find($id);
+        if (!isset($cliente)) {
+            return response()->json([
+                'status' => false,
+                'message' => "Cliente não encontrado"
             ]);
         }
 
         $cliente->delete();
         return response()->json([
             'status' => true,
-            'message' => "Serviço excluído com sucesso"
+            'message' => "Cliente excluído com sucesso"
         ]);
     }
-    public function update( ClienteFormRequest $request)
+    public function update(ClienteFormRequestUpdate $request)
     {
         $cliente = Cliente::find($request->id);
 
         if (!isset($cliente)) {
             return response()->json([
                 'status' => false,
-                'message' => "Serviço não encontrado"
+                'message' => "Cliente não encontrado"
             ]);
         }
        
@@ -182,4 +214,19 @@ class ClienteController extends Controller
         ]);
        
     }
+    public function retornarTudo(){
+        $cliente = Cliente::all();
+
+        if(count($cliente)==0){
+            return response()->json([
+                'status'=> false,
+                'message'=> "serviço nao encontrado"
+            ]);
+        }
+        return response()->json([
+            'status'=> true,
+            'data' => $cliente
+        ]);
+       }
+   
 }
