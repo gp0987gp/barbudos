@@ -121,7 +121,7 @@ class ClienteController extends Controller
     public function pesquisaId($id)
     {
         $cliente = Cliente::find($id);
-       
+
         if ($cliente == null) {
             return response()->json([
                 'status' => false,
@@ -132,11 +132,10 @@ class ClienteController extends Controller
             'status' => true,
             'data' => $cliente
         ]);
-       
     }
     public function exclui($id)
     {
-       
+
         $cliente = Cliente::find($id);
         if (!isset($cliente)) {
             return response()->json([
@@ -161,48 +160,48 @@ class ClienteController extends Controller
                 'message' => "Cliente não encontrado"
             ]);
         }
-       
-        if(isset($request->nome)){
-        $cliente-> nome = $request->nome;
+
+        if (isset($request->nome)) {
+            $cliente->nome = $request->nome;
         }
-        if(isset($request->celular)){
-        $cliente-> celular = $request->celular;
+        if (isset($request->celular)) {
+            $cliente->celular = $request->celular;
         }
-        if(isset($request->email)){
-        $cliente-> email = $request->email;
+        if (isset($request->email)) {
+            $cliente->email = $request->email;
         }
-        if(isset($request->cpf)){
-        $cliente-> cpf = $request->cpf;
+        if (isset($request->cpf)) {
+            $cliente->cpf = $request->cpf;
         }
-        if(isset($request->nascimento)){
-            $cliente-> nascimento = $request->nascimento;
+        if (isset($request->nascimento)) {
+            $cliente->nascimento = $request->nascimento;
         }
-        if(isset($request->cidade)){
-            $cliente-> cidade = $request->cidade;
+        if (isset($request->cidade)) {
+            $cliente->cidade = $request->cidade;
         }
-        if(isset($request->estado)){
-            $cliente-> estado = $request->estado;
+        if (isset($request->estado)) {
+            $cliente->estado = $request->estado;
         }
-        if(isset($request->pais)){
-            $cliente-> pais = $request->pais;
+        if (isset($request->pais)) {
+            $cliente->pais = $request->pais;
         }
-        if(isset($request->rua)){
-            $cliente-> rua = $request->rua;
+        if (isset($request->rua)) {
+            $cliente->rua = $request->rua;
         }
-        if(isset($request->numero)){
-            $cliente-> numero = $request->numero;
+        if (isset($request->numero)) {
+            $cliente->numero = $request->numero;
         }
-        if(isset($request->bairro)){
-            $cliente-> bairro = $request->bairro;
+        if (isset($request->bairro)) {
+            $cliente->bairro = $request->bairro;
         }
-        if(isset($request->cep)){
-            $cliente-> cep = $request->cep;
+        if (isset($request->cep)) {
+            $cliente->cep = $request->cep;
         }
-        if(isset($request->complemento)){
-            $cliente-> complemento = $request->complemneto;
+        if (isset($request->complemento)) {
+            $cliente->complemento = $request->complemneto;
         }
-        if(isset($request->password)){
-            $cliente-> password = $request->password;
+        if (isset($request->password)) {
+            $cliente->password = $request->password;
         }
 
 
@@ -212,21 +211,20 @@ class ClienteController extends Controller
             'status' => true,
             'message' => "Cliente atualizado."
         ]);
-       
     }
-    public function retornarTudo(){
+    public function retornarTudo()
+    {
         $cliente = Cliente::all();
 
-        if(count($cliente)==0){
+        if (count($cliente) == 0) {
             return response()->json([
-                'status'=> false,
-                'message'=> "serviço nao encontrado"
+                'status' => false,
+                'message' => "serviço nao encontrado"
             ]);
         }
         return response()->json([
-            'status'=> true,
+            'status' => true,
             'data' => $cliente
         ]);
-       }
-   
+    }
 }

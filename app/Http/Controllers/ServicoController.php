@@ -24,9 +24,9 @@ class ServicoController extends Controller
             "success" => true,
             "message" => "Serviço cadastrado",
             "data" => $servico
-           
+
         ], 200);
-         
+
         if (count($servico) > 0) {
             return response()->json([
                 'status' => false,
@@ -67,24 +67,7 @@ class ServicoController extends Controller
             'message' => 'Não há resultado para pesquisa.'
         ]);
     }
-    public function esqueciSenha(Request $request)
-    {
-        $servico = servico::where('id', $request->id)->first();
 
-        if (isset($servico)) {
-            $servico->password = Hash::make($servico->cpf);
-            $servico->update();
-            return response()->json([
-                'status' => true,
-                'message' => 'senha redefinida.'
-            ]);
-        }
-
-        return response()->json([
-            'status' => true,
-            'message' => 'não foi possivel alterar a senha'
-        ]);
-    }
 
     public function pesquisarIdServico($id)
     {
@@ -101,7 +84,7 @@ class ServicoController extends Controller
             'data' => $servico
         ]);
     }
-    
+
     public function excluir($id)
     {
         $servico = Servico::find($id);
@@ -129,18 +112,18 @@ class ServicoController extends Controller
                 'message' => "Serviço não encontrado"
             ]);
         }
-        
-        if(isset($request->nome)){
-        $servico-> nome = $request->nome;
+
+        if (isset($request->nome)) {
+            $servico->nome = $request->nome;
         }
-        if(isset($request->descricao)){
-        $servico-> descricao = $request->descricao;
+        if (isset($request->descricao)) {
+            $servico->descricao = $request->descricao;
         }
-        if(isset($request->duracao)){
-        $servico-> duracao = $request->duracao;
+        if (isset($request->duracao)) {
+            $servico->duracao = $request->duracao;
         }
-        if(isset($request->preco)){
-        $servico-> preco = $request->preco;
+        if (isset($request->preco)) {
+            $servico->preco = $request->preco;
         }
 
         $servico->update();
@@ -149,20 +132,20 @@ class ServicoController extends Controller
             'status' => true,
             'message' => "Serviço atualizado."
         ]);
-        
     }
-    public function retornarTodos(){
+    public function retornarTodos()
+    {
         $servico = Servico::all();
 
-        if(count($servico)==0){
+        if (count($servico) == 0) {
             return response()->json([
-                'status'=> false,
-                'message'=> "serviço nao encontrado"
+                'status' => false,
+                'message' => "serviço nao encontrado"
             ]);
         }
         return response()->json([
-            'status'=> true,
+            'status' => true,
             'data' => $servico
         ]);
-       }
+    }
 }

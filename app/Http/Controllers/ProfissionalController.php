@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 class ProfissionalController extends Controller
 
 {
-   
+
     public function criarProfissional(ProfissionalFormRequest $request)
     {
         $profissional = profissional::create([
@@ -43,9 +43,8 @@ class ProfissionalController extends Controller
                 'data' => $profissional
             ]);
         }
-
     }
-    
+
     public function pesquisaPorNome(Request $request)
     {
         $profissional = profissional::where('nome', 'like', '%' . $request->nome . '%')->get();
@@ -62,7 +61,7 @@ class ProfissionalController extends Controller
             'message' => 'Não há resultado para pesquisa.'
         ]);
     }
-    
+
     public function pesquisaCelular(Request $request)
     {
         $profissional = Profissional::where('celular', 'like', '%' . $request->celular . '%')->get();
@@ -79,11 +78,11 @@ class ProfissionalController extends Controller
             'message' => 'Não há resultado para pesquisa.'
         ]);
     }
-    
+
     public function pesquisaPorId($id)
     {
         $profissional = Profissional::find($id);
-        
+
         if ($profissional == null) {
             return response()->json([
                 'status' => false,
@@ -94,7 +93,6 @@ class ProfissionalController extends Controller
             'status' => true,
             'data' => $profissional
         ]);
-        
     }
     public function pesquisaCPF(Request $request)
     {
@@ -130,7 +128,7 @@ class ProfissionalController extends Controller
     }
     public function exclui($id)
     {
-        
+
         $profissional = profissional::find($id);
         if (!isset($profissional)) {
             return response()->json([
@@ -145,7 +143,7 @@ class ProfissionalController extends Controller
             'message' => "profissional excluído com sucesso"
         ]);
     }
-    public function update( ProfissionalFormRequestUpdate $request)
+    public function update(ProfissionalFormRequestUpdate $request)
     {
         $profissional = profissional::find($request->id);
 
@@ -155,51 +153,51 @@ class ProfissionalController extends Controller
                 'message' => "profissional não encontrado"
             ]);
         }
-       
-        if(isset($request->nome)){
-        $profissional-> nome = $request->nome;
+
+        if (isset($request->nome)) {
+            $profissional->nome = $request->nome;
         }
-        if(isset($request->celular)){
-        $profissional-> celular = $request->celular;
+        if (isset($request->celular)) {
+            $profissional->celular = $request->celular;
         }
-        if(isset($request->email)){
-        $profissional-> email = $request->email;
+        if (isset($request->email)) {
+            $profissional->email = $request->email;
         }
-        if(isset($request->cpf)){
-        $profissional-> cpf = $request->cpf;
+        if (isset($request->cpf)) {
+            $profissional->cpf = $request->cpf;
         }
-        if(isset($request->nascimento)){
-            $profissional-> nascimento = $request->nascimento;
+        if (isset($request->nascimento)) {
+            $profissional->nascimento = $request->nascimento;
         }
-        if(isset($request->cidade)){
-            $profissional-> cidade = $request->cidade;
+        if (isset($request->cidade)) {
+            $profissional->cidade = $request->cidade;
         }
-        if(isset($request->estado)){
-            $profissional-> estado = $request->estado;
+        if (isset($request->estado)) {
+            $profissional->estado = $request->estado;
         }
-        if(isset($request->pais)){
-            $profissional-> pais = $request->pais;
+        if (isset($request->pais)) {
+            $profissional->pais = $request->pais;
         }
-        if(isset($request->rua)){
-            $profissional-> rua = $request->rua;
+        if (isset($request->rua)) {
+            $profissional->rua = $request->rua;
         }
-        if(isset($request->numero)){
-            $profissional-> numero = $request->numero;
+        if (isset($request->numero)) {
+            $profissional->numero = $request->numero;
         }
-        if(isset($request->bairro)){
-            $profissional-> bairro = $request->bairro;
+        if (isset($request->bairro)) {
+            $profissional->bairro = $request->bairro;
         }
-        if(isset($request->cep)){
-            $profissional-> cep = $request->cep;
+        if (isset($request->cep)) {
+            $profissional->cep = $request->cep;
         }
-        if(isset($request->complemento)){
-            $profissional-> complemento = $request->complemneto;
+        if (isset($request->complemento)) {
+            $profissional->complemento = $request->complemneto;
         }
-        if(isset($request->password)){
-            $profissional-> password = $request->password;
+        if (isset($request->password)) {
+            $profissional->password = $request->password;
         }
-        if(isset($request->salario)){
-            $profissional-> salario = $request->salario;
+        if (isset($request->salario)) {
+            $profissional->salario = $request->salario;
         }
 
 
@@ -209,33 +207,33 @@ class ProfissionalController extends Controller
             'status' => true,
             'message' => "profissional atualizado."
         ]);
-       
     }
-    public function retornartodosProfissionais(){
+    public function retornartodosProfissionais()
+    {
         $profissional = profissional::all();
 
-        if(count($profissional)==0){
+        if (count($profissional) == 0) {
             return response()->json([
-                'status'=> false,
-                'message'=> "profissionai nao encontrado"
+                'status' => false,
+                'message' => "profissionai nao encontrado"
             ]);
         }
         return response()->json([
-            'status'=> true,
+            'status' => true,
             'data' => $profissional
         ]);
-       }
-       public function esqueciSenha(Request $request)
-       {
-           $profissional = Profissional::where('id', $request->id)->first();
-   
-           if (isset($profissional)) {
-               $profissional->password = Hash::make($profissional->cpf);
-               $profissional->update();
-               return response()->json([
-                   'status' => true,
-                   'message' => 'senha redefinida.'
-               ]);
-           }
-}
+    }
+    public function esqueciSenha(Request $request)
+    {
+        $profissional = Profissional::where('id', $request->id)->first();
+
+        if (isset($profissional)) {
+            $profissional->password = Hash::make($profissional->cpf);
+            $profissional->update();
+            return response()->json([
+                'status' => true,
+                'message' => 'senha redefinida.'
+            ]);
+        }
+    }
 }
