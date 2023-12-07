@@ -42,20 +42,30 @@ API de Busca de CEP: ViaCEP
 
 1. Clone este repositório para o seu ambiente de desenvolvimento local utilizando o comando:
 ```
- git clone https://github.com/gp0987gp/barbudos_app.git
+ git clone https://github.com/Matheus438/barbudos.git
 ```
 2. Acesse o diretório do projeto:
 ```
-cd barbudos_app
+cd barbudos
 ```
-3. Instale o npm
+3. Inicializando o Repositorio 
 ```
-npm install
+composer update
+```
+4. Inicializando o migrate 
+```
+php artisan migrate 
+```
+5. Copiando o env. do exemplo
+```
+copy .env.example .env
 ```
 6. Acessar o Visual Studio Code
 ```
 code.
 ```
+## insominia
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Lojavirtual&uri=https%3A%2F%2Fraw.githubusercontent.com%2FMatheus438%2Flojavirtual-api%2Fmain%2FInsomnia.json%3Ftoken%3DGHSAT0AAAAAACGBYCNWQ6MUM2BYYKUEH2DIZGSEW6A)
 ## Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE), o que significa que você pode utilizá-lo livremente para fins educacionais, comerciais ou pessoais.
