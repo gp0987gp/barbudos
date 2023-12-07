@@ -20,6 +20,7 @@ O BarberTech é um sistema de gerenciamento para barbearias, projetado para faci
 ### 4. Busca por CEP
    - **Descrição:** Integração com serviços de consulta de CEP para agilizar o preenchimento de endereços.
 Instruções: Insira o CEP desejado e aproveite o preenchimento automático dos dados de endereço.
+
 ### 5. Troca de Senha
 Descrição: Possibilita a alteração segura de senhas para clientes ou profissionais. 
 Instruções: Acesse a opção "Trocar Senha", forneça as informações necessárias e confirme a mudança.
