@@ -60,7 +60,7 @@ Este projeto está licenciado sob a [MIT License](LICENSE), o que significa que 
 
 ## Contato
 
-Em caso de dúvidas, sugestões ou problemas, sinta-se à vontade para entrar em contato através do email: matheusbispoa3@gmail.com.
+Em caso de dúvidas, sugestões ou problemas, sinta-se à vontade para entrar em contato através do email: gp0987gp@gmail.com.
 
 Licença
 Este projeto é distribuído sob a licença [MIT]. Veja o arquivo LICENSE para mais detalhes.
