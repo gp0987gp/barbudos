@@ -29,9 +29,38 @@ Linguagem: PHP, TypeScript
 Framework: Flask
 Banco de Dados: SQLite
 API de Busca de CEP: ViaCEP
-Instalação e Uso
-Clone o repositório.
-Instale as dependências:
+Certifique-se de ter os seguintes requisitos atendidos antes de começar a trabalhar nos exercícios:
+
+- 7-Zip instalado
+- Git instalado
+- Editor de código de sua preferência
+- npm instalado
+
+## Como utilizar este repositório
+
+1. Clone este repositório para o seu ambiente de desenvolvimento local utilizando o comando:
+```
+ git clone https://github.com/gp0987gp/barbudos_app.git
+```
+2. Acesse o diretório do projeto:
+```
+cd barbudos_app
+```
+3. Instale o npm
+```
+npm install
+```
+6. Acessar o Visual Studio Code
+```
+code.
+```
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE), o que significa que você pode utilizá-lo livremente para fins educacionais, comerciais ou pessoais.
+
+## Contato
+
+Em caso de dúvidas, sugestões ou problemas, sinta-se à vontade para entrar em contato através do email: matheusbispoa3@gmail.com.
 
 Licença
 Este projeto é distribuído sob a licença [MIT]. Veja o arquivo LICENSE para mais detalhes.
