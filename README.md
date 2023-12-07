@@ -42,7 +42,7 @@ API de Busca de CEP: ViaCEP
 
 1. Clone este repositório para o seu ambiente de desenvolvimento local utilizando o comando:
 ```
- git clone https://github.com/Matheus438/barbudos.git
+ git clone https://github.com/gp0987gp/barbudos.git
 ```
 2. Acesse o diretório do projeto:
 ```
