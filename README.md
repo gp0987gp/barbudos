@@ -29,7 +29,9 @@ Linguagem: PHP, TypeScript
 Framework: Flask
 Banco de Dados: SQLite
 API de Busca de CEP: ViaCEP
-Certifique-se de ter os seguintes requisitos atendidos antes de começar a trabalhar nos exercícios:
+
+
+## Certifique-se de ter os seguintes requisitos atendidos antes de começar a trabalhar nos exercícios:
 
 - 7-Zip instalado
 - Git instalado
