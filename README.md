@@ -1,52 +1,58 @@
-*lembra de fazer o front da agenda/ o excluir e a pagina de redefinir senha
-## Barbearia Barbudos
-## Requisitos
+# Projeto BarberTech
 
-Certifique-se de ter os seguintes requisitos atendidos antes de começar a trabalhar nos exercícios:
+## Descrição
+O BarberTech é um sistema de gerenciamento para barbearias, projetado para facilitar a administração de clientes, profissionais e proporcionar funcionalidades úteis, como exclusão de senha, busca por CEP e troca de senha.
 
-- PHP instalado
-- Composer instalado
-- Laravel Framework instalado
-- 7-Zip instalado
-- Git instalado
-- Editor de código de sua preferência
+## Funcionalidades
 
-## Como utilizar este repositório
+### 1. Cadastro de Cliente
+   - **Descrição:** Permite o cadastro fácil e rápido de novos clientes.
+   - **Instruções:** Preencha os campos obrigatórios, como nome, contato e endereço.
 
-1. Clone este repositório para o seu ambiente de desenvolvimento local utilizando o comando:
-```
- git clone https://github.com/gp0987gp/barbudos.git
-```
-2. Acesse o diretório do projeto:
-```
-cd barbudos
-```
-3. Inicializando o Repositorio 
-```
-composer update
-```
-4. Inicializando o migrate 
-```
-php artisan migrate 
-```
-5. Copiando o env. do exemplo
-```
-copy .env.example .env
-```
-6. Acessar o Visual Studio Code
-```
-code.
-```
-## insominia
-[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Lojavirtual&uri=https%3A%2F%2Fraw.githubusercontent.com%2FMatheus438%2Flojavirtual-api%2Fmain%2FInsomnia.json%3Ftoken%3DGHSAT0AAAAAACGBYCNWQ6MUM2BYYKUEH2DIZGSEW6A)
-## Licença
+### 2. Cadastro de Profissionais
+   - **Descrição:** Facilita a inclusão de informações sobre os profissionais da barbearia.
+   - **Instruções:** Insira os dados relevantes, como nome, especialidade e informações de contato.
 
-Este projeto está licenciado sob a [MIT License](LICENSE), o que significa que você pode utilizá-lo livremente para fins educacionais, comerciais ou pessoais.
+### 3. Exclusão de Senha
+   - **Descrição:** Permite a exclusão segura de senhas de clientes ou profissionais.
+   - **Instruções:** Selecione a opção "Excluir Senha", forneça as informações necessárias e confirme.
 
-## Contato
+### 4. Busca por CEP
+   - **Descrição:** Integração com serviços de consulta de CEP para agilizar o preenchimento de endereços.
+Instruções: Insira o CEP desejado e aproveite o preenchimento automático dos dados de endereço.
+### 5. Troca de Senha
+Descrição: Possibilita a alteração segura de senhas para clientes ou profissionais. 
+Instruções: Acesse a opção "Trocar Senha", forneça as informações necessárias e confirme a mudança.
+Requisitos Técnicos
+Linguagem: Python
+Framework: Flask
+Banco de Dados: SQLite
+API de Busca de CEP: ViaCEP
+Instalação e Uso
+Clone o repositório.
+Instale as dependências: pip install -r requirements.txt.
+Configure as variáveis de ambiente necessárias.
+Execute o aplicativo: python app.py.
+Acesse o sistema via navegador no endereço fornecido.
+Contribuição
+Contribuições são bem-vindas! Sinta-se à vontade para reportar problemas ou propor melhorias através das issues.
 
-Em caso de dúvidas, sugestões ou problemas, sinta-se à vontade para entrar em contato através do email: gp987gp@gmail.com.
+Licença
+Este projeto é distribuído sob a licença [MIT]. Veja o arquivo LICENSE para mais detalhes.
 
-**Aviso**: Certifique-se de substituir "seu_usuario" no link de clonagem e "seu_email@example.com" na seção de contato pelos valores correspondentes do seu próprio usuário do GitHub e endereço de e-mail.
+## Tecnologias Utilizadas
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Node.js, Express
+- **Banco de Dados:** MongoDB
 
+## Como Executar o Projeto
+1. Clone este repositório: git clone https://github.com/gp0987gp/barbudos.git
+Instale as dependências: npm install
+Configure as variáveis de ambiente necessárias.
+Inicie o servidor: npm start
+Acesse o aplicativo em http://localhost:3000
+Contribuições
+Contribuições são bem-vindas! Sinta-se à vontade para abrir problemas ou enviar pull requests.
 
+Licença
+Este projeto está licenciado sob a Licença MIT.
