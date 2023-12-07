@@ -1,7 +1,7 @@
-# Projeto BarberTech
+# Projeto Barbudos
 
 ## Descrição
-O BarberTech é um sistema de gerenciamento para barbearias, projetado para facilitar a administração de clientes, profissionais e proporcionar funcionalidades úteis, como exclusão de senha, busca por CEP e troca de senha.
+O Barbudos Barbearia é um sistema de gerenciamento para barbearias, projetado para facilitar a administração de clientes, profissionais e proporcionar funcionalidades úteis, como exclusão de senha, busca por CEP e troca de senha.
 
 ## Funcionalidades
 
