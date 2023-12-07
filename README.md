@@ -24,24 +24,19 @@ Instruções: Insira o CEP desejado e aproveite o preenchimento automático dos 
 Descrição: Possibilita a alteração segura de senhas para clientes ou profissionais. 
 Instruções: Acesse a opção "Trocar Senha", forneça as informações necessárias e confirme a mudança.
 Requisitos Técnicos
-Linguagem: Python
+Linguagem: PHP, TypeScript
 Framework: Flask
 Banco de Dados: SQLite
 API de Busca de CEP: ViaCEP
 Instalação e Uso
 Clone o repositório.
-Instale as dependências: pip install -r requirements.txt.
-Configure as variáveis de ambiente necessárias.
-Execute o aplicativo: python app.py.
-Acesse o sistema via navegador no endereço fornecido.
-Contribuição
-Contribuições são bem-vindas! Sinta-se à vontade para reportar problemas ou propor melhorias através das issues.
+Instale as dependências:
 
 Licença
 Este projeto é distribuído sob a licença [MIT]. Veja o arquivo LICENSE para mais detalhes.
 
 ## Tecnologias Utilizadas
-- **Frontend:** HTML, CSS, JavaScript
+- **Frontend:** HTML, CSS, PHP, TYPESCRIPT
 - **Backend:** Node.js, Express
 - **Banco de Dados:** MongoDB
 
