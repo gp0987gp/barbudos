@@ -27,7 +27,7 @@ Instruções: Acesse a opção "Trocar Senha", forneça as informações necess�
 Requisitos Técnicos
 Linguagem: PHP, TypeScript
 Framework: Flask
-Banco de Dados: SQLite
+Banco de Dados: MariaDB
 API de Busca de CEP: ViaCEP
 
 
