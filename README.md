@@ -70,14 +70,3 @@ Este projeto é distribuído sob a licença [MIT]. Veja o arquivo LICENSE para m
 - **Backend:** Node.js, Express
 - **Banco de Dados:** MongoDB
 
-## Como Executar o Projeto
-1. Clone este repositório: git clone https://github.com/gp0987gp/barbudos.git
-Instale as dependências: npm install
-Configure as variáveis de ambiente necessárias.
-Inicie o servidor: npm start
-Acesse o aplicativo em http://localhost:3000
-Contribuições
-Contribuições são bem-vindas! Sinta-se à vontade para abrir problemas ou enviar pull requests.
-
-Licença
-Este projeto está licenciado sob a Licença MIT.
